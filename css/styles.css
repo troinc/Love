@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+
+/* Agregar al inicio del archivo, después de los imports */
+body {
+    cursor: url('../img/pack1110.png'), auto;
+}
+
+/* Para cuando el cursor está sobre elementos clickeables */
+a, button, .valentines-day, .title, .close, .carta-btn, .fullscreen-btn {
+    cursor: url('../img/pack1110-2.png'), pointer !important;
+}
+
+#card {
+   height:500px;
+   width:800px;
+   margin:5em auto;
+   position: fixed;
+   top: -15px;
+   left: 25%;
+   display:flex;
+   visibility:hidden;
+}
+#card h2 {
+   font-size:3em;
+   margin:0;
+   color:pink;
+   text-align: center;
+}
+#card p {
+   font-size: 1.5em;
+   text-align: justify;
+   padding-left: 30px; /* Espacio en blanco a la izquierda */
+   padding-right: 30px; /* Espacio en blanco a la derecha */
+}
+
+
+.side {
+   background:#eee;
+   height:550px;
+   width:400px;
+/*    border:1px solid red; */
+   padding:10px;
+}
+.side.one {
+   width:320px;
+   transform:skew(10deg,20deg);
+   background:linear-gradient(90deg, #fff, #fff 40%, #ddd);
+}
+.side.two {
+   transform:skew(10deg,-15deg);
+   background:linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+}
+
+body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   font-family: 'Sacramento', cursive;
+   background-color: #f07474;
+   overflow: hidden;
+ }
+ 
+ .valentines-day {
+   position: relative;
+   cursor: pointer;
+ }
+ 
+ .envelope {
+   position: relative;
+   filter: drop-shadow(0 0 25px rgba(0,0,0,.3));
+ }
+ 
+ .envelope:before {
+   content:"";
+   position: absolute;
+   width:254px;
+   height:254px;
+   background-color: #ff9494;
+   transform: rotate(-45deg);
+   border-radius: 0 15px 0 0;
+   left:-37px;
+   top:-82px;
+ }
+ 
+ .envelope:after {
+   content:"";
+   position: absolute;
+   background-color: #ff9494;
+   width:360px;
+   height:225px;
+   left:-90px;
+   top:45px;
+ }
+ 
+ .heart {
+   position: relative;
+   background-color: #e01911;
+   display: inline-block;
+   height: 180px;
+   top:50px;
+   left:0;
+   transform: rotate(-45deg);
+   width:180px;
+   filter: drop-shadow(0 -10px 25px rgba(0,0,0,.3));
+   transition: .5s;
+ }
+   
+ .heart:before, .heart:after {
+   content:"";
+   background-color: #e01911;
+   border-radius:50%;
+   height: 180px;
+   width: 180px;
+   position: absolute;
+   }
+   
+ .heart:before {
+   top:-100px;
+   left:0;}
+   
+ .heart:after {
+   left:100px;
+   top:0;}
+ 
+ .front {
+   position: absolute;
+   width:0;
+   height:0;
+   border-right: 190px solid #fbd2d2;
+   border-top: 113px solid transparent;
+   border-bottom: 113px solid transparent;
+   top:44px;
+   left:80px;
+   z-index:4;
+ }
+ 
+ .front:before {
+   content:"";
+   position: absolute;
+   width:0;
+   height:0;
+   border-left: 190px solid #fbd2d2;
+   border-top: 113px solid transparent;
+   border-bottom: 113px solid transparent;
+   top:-113px;
+   left:-170px;
+ }
+ 
+ .front:after {
+   width:0;
+   height:0;
+   position: absolute;
+   content:"";
+   border-bottom: 150px solid #fce7e9;
+   border-right:180px solid transparent;
+   border-left: 180px solid transparent;
+   top:-36px;
+   left:-170px;
+ }
+ 
+ .text {
+   position: absolute;
+   font-family: arial;
+   letter-spacing:5px;
+   text-align: center;
+   color: white;
+   z-index:2;
+   top:80px;
+   left:15px;
+   transition: .5s;
+ }
+ 
+ .valentines-day:hover .heart {
+   transform: translateY(-50px) rotate(-45deg);
+ }
+ 
+ .valentines-day:hover .text {
+   transform: translateY(-50px);
+ }
+
+/* Ajustes responsive para la carta */
+@media screen and (max-width: 768px) {
+    #card {
+        width: 90%;
+        height: auto;
+        left: 5%;
+        margin: 2em auto;
+        flex-direction: column;
+    }
+
+    .side {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+    }
+
+    .side.one, .side.two {
+        transform: none;
+        margin-bottom: 20px;
+    }
+
+    #card h2 {
+        font-size: 2em;
+    }
+
+    #card p {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .envelope {
+        transform: scale(0.8);
+    }
+
+    .text {
+        font-size: 0.8em;
+        left: 10px;
+    }
+
+    #card h2 {
+        font-size: 1.5em;
+    }
+
+    #card p {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+/* Agregar estos estilos nuevos */
+.fullscreen-btn {
+    position: fixed; /* Cambiado a fixed para que esté en la esquina de la ventana */
+    bottom: 20px; /* Cambiado a bottom para ponerlo en la parte inferior */
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #f07474;
+    border: 2px solid #f07474;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.fullscreen-btn:hover {
+    background-color: #f07474;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Ajustar el icono cuando está en modo pantalla completa */
+.fullscreen-mode .fullscreen-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.fullscreen-mode .fullscreen-btn i::before {
+    content: "\f078"; /* Cambia el icono a chevron-down cuando está en pantalla completa */
+}
+
+/* Ajustes responsive para el botón */
+@media screen and (max-width: 480px) {
+    .fullscreen-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Estilos para modo pantalla completa */
+.fullscreen-mode {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    background: #fff !important;
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    font-family: Arial, sans-serif; /* Cambiar la fuente a Arial en modo pantalla completa */
+}
+
+.fullscreen-mode .side {
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    height: auto !important;
+    background: transparent !important;
+}
+
+.fullscreen-mode .side.one {
+    display: none;
+}
+
+.fullscreen-mode .side.two {
+    padding: 40px !important;
+}
+
+/* Ajustes responsive mejorados */
+@media screen and (max-width: 768px) {
+    .fullscreen-mode .side.two {
+        padding: 20px !important;
+    }
+    
+    .fullscreen-mode #card h2 {
+        font-size: 2.5em;
+    }
+    
+    .fullscreen-mode #card p {
+        font-size: 1.3em;
+        line-height: 1.4;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .fullscreen-mode #card h2 {
+        font-size: 2em;
+    }
+    
+    .fullscreen-mode #card p {
+        font-size: 1.1em;
+    }
+    
+    .fullscreen-btn {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+}
